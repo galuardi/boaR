@@ -1,0 +1,11 @@
+Package: boaR
+Type: Package
+Title: BOA front detection
+Version: 1.0
+Date: 2012-01-02
+Author: Benjamin Galuardi
+Maintainer: <drdrumfish@gmail.com>
+Description: R port of the Belkin-O'Reilly front detection algorithm
+License: GPL (>= 2)
+LazyLoad: yes
+Depends: adehabitat
