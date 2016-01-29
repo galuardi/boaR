@@ -3,7 +3,7 @@ function(lon, lat, ingrid, nodata = NA, direction = F){
 #======================================================#
 # Main BOA algorithm
 #======================================================#
-require(adehabitat)
+# require(adehabitat)
 # x component (longitudinal kernel)
 gx = matrix(c(-1,0,1,-2,0,2,-1,0,1),nrow=3, byrow=T)
 # y component (latitudinal kernel)

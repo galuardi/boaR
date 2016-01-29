@@ -8,4 +8,5 @@ Maintainer: <drdrumfish@gmail.com>
 Description: R port of the Belkin-O'Reilly front detection algorithm
 License: GPL (>= 2)
 LazyLoad: yes
-Depends: adehabitat
+Depends:
+RoxygenNote: 5.0.0
