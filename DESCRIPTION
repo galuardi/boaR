@@ -6,7 +6,7 @@ Date: 2017-10-11
 Author: Benjamin Galuardi
 Maintainer: <drdrumfish@gmail.com>
 Description: R port of the Belkin-O'Reilly front detection algorithm
-Imports: raster, fields
+Depends: raster, fields
 Suggests:
 License: GPL (>= 2)
 LazyLoad: yes
