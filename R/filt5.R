@@ -1,3 +1,17 @@
+#' filt5
+#' @description  Finds maximum of a 5x5 sliding window. If the central pixel is the maximum, this is flagged as a one. All other pixels are flagged as zero. Usually this function is not used directly.
+#' @usage filt5(lon, lat, ingrid, nodata = NA)
+#' @param lon longitude (vector) of the satellite image
+#' @param lat latitude (vector) of the satellite image
+#' @param ingrid The satellite data (matrix)
+#' @param nodata value representing 'no data'
+#'
+#' @return returns a grid of zeros and ones
+#' @seealso \code{\link{boa}}
+#' @export
+#'
+#' @examples 
+#' # none
 filt5 <-
 function(lon , lat, ingrid, nodata = NA){
 #======================================================#

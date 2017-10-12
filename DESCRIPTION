@@ -1,12 +1,16 @@
 Package: boaR
 Type: Package
 Title: BOA front detection
-Version: 1.0
-Date: 2012-01-02
+Version: 2.0
+Date: 2017-10-11
 Author: Benjamin Galuardi
 Maintainer: <drdrumfish@gmail.com>
 Description: R port of the Belkin-O'Reilly front detection algorithm
+Imports: raster, fields
+Suggests:
 License: GPL (>= 2)
 LazyLoad: yes
 Depends:
-RoxygenNote: 5.0.0
+RoxygenNote: 6.0.1
+NeedsCompilation: no
+Packaged: 2017-10-12 15:51:53 UTC; benjamin.galuardi

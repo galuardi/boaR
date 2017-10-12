@@ -17,7 +17,7 @@ Date: \tab 2012-01-02\cr
 License: \tab GPL (>= 2) \cr
 LazyLoad: \tab yes\cr
 }
-This package works on satellite imagery imported into R. This package contains three functions which iteratively perfom median filtering and front detection. This is a port from IDL code which operated on flat binary files directly. It is easiest (in my opinion) to import satellite data into R as a netcdf file using the \code{\link{ncdf}} package.   
+This package works on satellite imagery imported into R. This package contains three functions which iteratively perfom median filtering and front detection. This is a port from IDL code which operated on flat binary files directly. It is easiest (in my opinion) to import satellite data into R as a netcdf file using the \code{\link{raster}} package.   
 
 }
 \author{
@@ -32,35 +32,32 @@ Belkin, I. M. & O'Reilly, J. E. An algorithm for oceanic front detection in chlo
 }
 
 \examples{
-require(fields)
+library(boaR)
 
 # some good color ramps for gradient mapping
-sstgradcol =   colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan","#7FFF7F", "yellow", "#FF7F00", "red", "#7F0000"), interpolate = 'spline', bias = 2.5)
-chlgradcol =   colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan","#7FFF7F", "yellow", "#FF7F00", "red", "#7F0000"), interpolate = 'spline', bias = 1.5)
+chlgradcol =   colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan","#7FFF7F", "yellow", "#FF7F00", "red", "#7F0000"), interpolate = 'spline', bias = 2.0)
+sstgradcol =   colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan","#7FFF7F", "yellow", "#FF7F00", "red", "#7F0000"), interpolate = 'spline')
 
 # load some satelite data originally downloaded here (as a netcdf file):  http://coastwatch.pfeg.noaa.gov/erddap/griddap/index.html
 data(satdata)
 
 # Blended SST image
-attach(sst)
-tfront = boa(lon, lat, DATA, direction = T)
+x11()
+tfront = boa(sst$lon, sst$lat, sst$DATA, direction = T)
 par(mfrow=c(1,2))
-image.plot(lon, lat, tfront[[1]])
+plot(tfront[[1]])
 title('Direction')
-image.plot(lon, lat, tfront[[2]]) # could use col = sstgradcol(100) for a different scale
+plot(tfront[[2]], col = sstgradcol(100))
 title('Gradient Magnitude')
-detach(sst)
-
 
 # SeaWifs chlorophyll image
 x11()
-attach(swchl)
-cfront = boa(swlon, swlat, log(chl), direction = T)  # be sure to take the log of the chl 
+
+cfront = boa(swchl$swlon, swchl$swlat, log(swchl$chl), direction = T)  # be sure to take the log of the chl 
 par(mfrow=c(1,2))
-image.plot(swlon, swlat, cfront[[1]])
+plot(cfront[[1]])
 title('Direction')
-image.plot(swlon, swlat, cfront[[2]], col = chlgradcol(100))
+plot(cfront[[2]], col = chlgradcol(100))
 title('Gradient Magnitude (Ratio)')
-detach(swchl)
 
 }

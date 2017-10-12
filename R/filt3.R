@@ -1,3 +1,17 @@
+#' filt3
+#'
+#' @param lon longitude (vector) of the satellite image
+#' @param lat latitude (vector) of the satellite image
+#' @param ingrid The satellite data (matrix)
+#' @param grid5 results of \code{\link{filt5}}
+#'
+#' @return returns a median smoothed grid of satellite data
+#' @seealso \code{\link{boa}}
+#' @usage filt3(lon, lat, ingrid, grid5 = grid5(lon, lat, ingrid))
+#' @export
+#'
+#' @examples
+#' # none here
 filt3 <-
 function(lon , lat, ingrid, grid5){
 #======================================================#
